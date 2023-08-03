@@ -1,1 +1,31 @@
 <h3>server component</h3>
+
+<!-- this is a string interpolation -->
+<p>String interpolation & Property binding</p>
+<h6>{{"server"}} is started with a this Id: {{serverId}} and server status is: {{serverStatus}} || {{getServerStatus()}}</h6>
+<!-- property binding -->
+<button class="btn btn-primary" [disabled]="!allowNewServer">Click Me</button>
+<br>
+<!-- string interpolation -->
+{{allowNewServer}}
+<p>{{allowNewServer}}</p>
+<p [innerText]="allowNewServer"></p>
+
+<!-- Event Binding example-->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Click Me</button>
+<p>{{serverCreationStatus}}</p>
+
+
+<!-- Passing and using Data with Event binding -->
+<!-- <label for="">Server Name - Event-Binding</label>
+<input type="text"
+class="form-control"
+(input)="onUpdateServerName($event)" -->
+>
+<label for="">Server Name - Two-Way-Binding</label>
+<input type="text"
+class="form-control"
+[(ngModel)] = "serverName">
+
+<!-- <p>{{serverName}}</p> -->
+
