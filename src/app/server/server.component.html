@@ -3,6 +3,12 @@
 <!-- this is a string interpolation -->
 <p>String interpolation & Property binding</p>
 <h6>{{"server"}} is started with a this Id: {{serverId}} and server status is: {{serverStatus}} || {{getServerStatus()}}</h6>
+<p [ngStyle]="{backgroundColor:getColor()}" [ngClass]="{onLine:serverStatus === 'online'}">
+{{'server'}} with id {{serverId}} is {{getServerStatus}}
+
+
+
+</p>
 <!-- property binding -->
 <button class="btn btn-primary" [disabled]="!allowNewServer">Click Me</button>
 <br>
@@ -13,15 +19,15 @@
 
 <!-- Event Binding example-->
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Click Me</button>
-<p>{{serverCreationStatus}}</p>
-
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated">server was created the server name is :{{serverName}}</p>
 
 <!-- Passing and using Data with Event binding -->
 <!-- <label for="">Server Name - Event-Binding</label>
 <input type="text"
 class="form-control"
 (input)="onUpdateServerName($event)" -->
->
+
 <label for="">Server Name - Two-Way-Binding</label>
 <input type="text"
 class="form-control"
@@ -29,3 +35,12 @@ class="form-control"
 
 <!-- <p>{{serverName}}</p> -->
 
+<!-- Assignment property binding -->
+<!-- <label for="">User-Name</label>
+<input type="text"
+class="form-control"
+[(ngModel)] = "userName">
+
+<p>{{userName}}</p>
+
+<button class="btn btn-danger" [disabled]=  "userName === ''" (click)="userName = ''">Reset User</button> -->
